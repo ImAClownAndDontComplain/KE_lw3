@@ -27,6 +27,7 @@ namespace lw3
             InitializeComponent();
             DB.Clear();
             update();
+            lb.LinkClicked += lb_LinkClicked;
         }
 
         const string genm = "Boy Groups";
@@ -69,28 +70,43 @@ namespace lw3
         static Question concept = new Question(conc, cd, cc);
         static Question variety = new Question(var, want, dc);
         static Question stpr = new Question(sp, want, dc);
+        static Question y2000 = new Question(y2k, like, dl);
 
-        static Prop bg = new Prop("boygroups", 1, gender);
-        static Prop gg = new Prop("girlgroups", 2, gender);
-        static Prop mmb = new Prop("many members boys", 1, numberm);
-        static Prop lmb = new Prop("less members boys", 2, numberm);
-        static Prop mmg = new Prop("many members girls", 1, numberf);
-        static Prop lmg = new Prop("less members girls", 2, numberf);
-        static Prop sv = new Prop("strong vocals", 1, voc);
-        static Prop wv = new Prop("mediocre vocals", 2, voc);
-        static Prop sd = new Prop("strong dancing", 1, dan);
-        static Prop wd = new Prop("mediocre dancing", 2, dan);
-        static Prop sr = new Prop("strong rapping", 1, rap);
-        static Prop wr = new Prop("mediocre rapping", 2, rap);
-        static Prop spr = new Prop("strong sp", 1, stpr);
-        static Prop wpr = new Prop("mediocre weak sp", 2, stpr);
-        static Prop vc = new Prop("var of conc", 1, variety);
-        static Prop nvc = new Prop("no var of conc", 2, variety);
+        static Prop bg = new Prop(1, gender);
+        static Prop gg = new Prop(2, gender);
+        static Prop mmb = new Prop(1, numberm);
+        static Prop lmb = new Prop(2, numberm);
+        static Prop mmg = new Prop(1, numberf);
+        static Prop lmg = new Prop(2, numberf);
+        static Prop sv = new Prop(1, voc);
+        static Prop wv = new Prop(2, voc);
+        static Prop sd = new Prop(1, dan);
+        static Prop wd = new Prop(2, dan);
+        static Prop sr = new Prop(1, rap);
+        static Prop wr = new Prop(2, rap);
+        static Prop spr = new Prop(1, stpr);
+        static Prop wpr = new Prop(2, stpr);
+        static Prop vc = new Prop(1, variety);
+        static Prop nvc = new Prop(2, variety);
+        static Prop yk = new Prop(1, y2000);
 
-        static string s = "I highly recommend you checking out PURPLE KISS";
-        static Group PK = new Group(new List<Prop>() { gg, lmg, sv, sd, sr},s);
+        //private static Prop findanother(Prop p)
+        //{
+        //    switch (p.)
+        //    {
+        //        case sv: return wv;
+        //        case 
+        //    }
+        //}
 
-        List<Group> groups = new List<Group>() { PK };
+        static Result pk = new Result("PURPLE KISS", "https://www.youtube.com/watch?v=jM_1dLjqtlo&ab_channel=PURPLEKISS", "PURPLE KISS.jpg");
+        static Group PK = new Group(new List<Prop>() { gg, lmg, sv, sd, sr},pk);
+
+        static Result nj = new Result("NewJeans", "https://www.youtube.com/watch?v=js1CtxSY38I&ab_channel=HYBELABELS", "NewJeans.jpg");
+        static Group NJ = new Group(new List<Prop>() { gg, lmg, sv, sd, wr, yk }, nj);
+
+
+        List<Group> groups = new List<Group>() { PK, NJ };
 
         private void checkans()
         {
@@ -106,7 +122,6 @@ namespace lw3
                 p.ans = ca;
                 DB.Add(p);
                 j = 0;
-                i++;
             }
             update();
         }
@@ -118,15 +133,17 @@ namespace lw3
                 bt1.Text = groups[i].props[j].ques.ans1;
                 bt2.Text = groups[i].props[j].ques.ans2;
             }
-            else while (true)
+            else
+            {
+                while (true)
                 {
-                    while (j < DB.Count && groups[i].props[j] == DB[j]) j++;
+                    while (j < DB.Count && groups[i].props[j].ques.name == DB[j].ques.name && groups[i].props[j].ans == DB[j].ans) j++;
                     if (j < DB.Count)
                     {
                         j = 0;
                         i++;
                     }
-                    else if (j == DB.Count && j< groups[i].props.Count)
+                    else if (j == DB.Count && j < groups[i].props.Count)
                     {
                         tb.Text = groups[i].props[j].ques.name;
                         bt1.Text = groups[i].props[j].ques.ans1;
@@ -135,10 +152,11 @@ namespace lw3
                     }
                     else
                     {
-                        tb.Text = groups[i].res.name;
+                        showres();
                         break;
                     }
                 }
+            }
         }
 
         private void bt1_Click(object sender, EventArgs e)
@@ -152,5 +170,53 @@ namespace lw3
             ca = 2;
             checkans();
         }
+
+        public void showres()
+        {
+            tb.Text = groups[i].res.name;
+            text.Text = groups[i].res.descr;
+            lb.Text = groups[i].res.link;
+            pic.Image = Image.FromFile(groups[i].res.path);
+            bt1.Hide();
+            bt2.Hide();
+            text.Show();
+            lb.Show();
+            pic.Show();
+            lb.Enabled = true;
+        }
+
+        private void restart_Click(object sender, EventArgs e)
+        {
+            i = 0;
+            j = 0;
+            DB.Clear();
+            bt1.Show();
+            bt2.Show();
+            lb.Hide();
+            text.Hide();
+            pic.Hide();
+            update();
+        }
+
+        private void lb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open the link that was clicked.");
+            }
+        }
+
+        private void VisitLink()
+        {
+            lb.LinkVisited = true;
+            string link = "/c start " + lb.Text;
+            System.Diagnostics.Process.Start("cmd",link);
+        }
+
+        
     }
 }

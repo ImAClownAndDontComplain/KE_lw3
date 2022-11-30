@@ -46,49 +46,46 @@ namespace lw3
 
     class Result
     {
-        public Result(string n)
+        public Result(string n, string l, string p)
         {
             name = n;
+            string des = n + ".txt";
+            StreamReader sr = new StreamReader(des);
+            descr = sr.ReadToEnd();
+            sr.Close();
+            link = l;
+            path = p;
         }
         public string name;
         public string descr;
-        public string link1;
-        public string link2;
+        public string link;
         public string path;
     }
 
     class Prop
     {
-        public Prop(string n, int a, Question q)
+        public Prop(int a, Question q)
         {
-            this.name = n;
             this.ans = a;
             this.ques = q;
         }
         public Prop(Prop p)
         {
-            this.name = p.name;
             this.ans = p.ans;
             this.ques = p.ques;
         }
-        public string name;
         public int ans;
         public Question ques;
     }
     class Group
     {
         public List<Prop> props;
-        public Group(List<Prop> props, string s)
+        public Group(List<Prop> props, Result r)
         {
             this.props = props;
-            setres(s);
+            res = r;
 
         }
         public Result res;
-
-        public void setres(string s)
-        {
-            res = new Result(s);
-        }
     }
 }
