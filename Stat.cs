@@ -22,34 +22,13 @@ namespace lw3
         
     }
 
-    class Goto
-    {
-        public Goto(Question qc,Goto qp, Goto qn1, Goto gn2, Result r)
-        {
-            qn = qc;
-            previous = qp;
-            next1 = qn1;
-            next2 = gn2;
-            res = r;
-        }
-        //public void next()
-        //{
-        //    if (previous.qn.chosen == 1) this = next1;
-        //    else this = next2;
-        //}
-        public Question qn;
-        public Goto previous;
-        public Goto next1;
-        public Goto next2;
-        public Result res;
-    }
-
     class Result
     {
         public Result(string n, string l, string p)
         {
             name = n;
             string des = n + ".txt";
+            if (name == "IZONE") name = "IZ*ONE";
             StreamReader sr = new StreamReader(des);
             descr = sr.ReadToEnd();
             sr.Close();
@@ -68,11 +47,6 @@ namespace lw3
         {
             this.ans = a;
             this.ques = q;
-        }
-        public Prop(Prop p)
-        {
-            this.ans = p.ans;
-            this.ques = p.ques;
         }
         public int ans;
         public Question ques;
