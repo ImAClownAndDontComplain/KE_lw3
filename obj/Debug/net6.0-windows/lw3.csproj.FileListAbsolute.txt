@@ -16,3 +16,21 @@ D:\circus\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.pdb
 D:\circus\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.genruntimeconfig.cache
 D:\circus\ИЗ\lw3\obj\Debug\net6.0-windows\ref\lw3.dll
 D:\circus\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.Resource1.resources
+D:\circus\3 курс\5 сем\ИЗ\lw3\bin\Debug\net6.0-windows\lw3.exe
+D:\circus\3 курс\5 сем\ИЗ\lw3\bin\Debug\net6.0-windows\lw3.deps.json
+D:\circus\3 курс\5 сем\ИЗ\lw3\bin\Debug\net6.0-windows\lw3.runtimeconfig.json
+D:\circus\3 курс\5 сем\ИЗ\lw3\bin\Debug\net6.0-windows\lw3.dll
+D:\circus\3 курс\5 сем\ИЗ\lw3\bin\Debug\net6.0-windows\lw3.pdb
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.Form1.resources
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.Resource1.resources
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.csproj.GenerateResource.cache
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.GeneratedMSBuildEditorConfig.editorconfig
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.AssemblyInfoInputs.cache
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.AssemblyInfo.cs
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.csproj.CoreCompileInputs.cache
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.sourcelink.json
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.dll
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\refint\lw3.dll
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.pdb
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\lw3.genruntimeconfig.cache
+D:\circus\3 курс\5 сем\ИЗ\lw3\obj\Debug\net6.0-windows\ref\lw3.dll
